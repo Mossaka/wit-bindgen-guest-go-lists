@@ -1,28 +1,25 @@
 package main
 
 import (
-	// "github.com/mossaka/go-wit-bindgen-lists/exports"
-
 	"fmt"
 
-	"github.com/mossaka/go-wit-bindgen-lists/exports"
-	"github.com/mossaka/go-wit-bindgen-lists/imports"
+	"github.com/mossaka/go-wit-bindgen-lists/lists"
 )
 
 func init() {
-	exports.SetExports(ListsExportImpl{})
+	lists.SetExports(ListsExportImpl{})
 }
 
 type ListsExportImpl struct{}
 
-func (i ListsExportImpl) TestImports() {
-	imports.StringRoundtrip("x")
+func (i ListsExportImpl) ListsTestImports() {
+	lists.StringRoundtrip("x")
 
-	res1 := imports.ListRoundtrip([]uint8{1, 2, 3})
-	res2 := imports.StringRoundtrip("asdfasdf hello world")
-	res3 := imports.StringRoundtrip("hello ⚑ world")
-	res4 := imports.StringRoundtrip("")
-	res5 := imports.ListRoundtrip([]uint8{})
+	res1 := lists.ListRoundtrip([]uint8{1, 2, 3})
+	res2 := lists.StringRoundtrip("asdfasdf hello world")
+	res3 := lists.StringRoundtrip("hello ⚑ world")
+	res4 := lists.StringRoundtrip("")
+	res5 := lists.ListRoundtrip([]uint8{})
 	if string(res1) != string([]uint8{1, 2, 3}) {
 		panic(fmt.Sprintf("res1 = %v", res1))
 	}
@@ -40,15 +37,15 @@ func (i ListsExportImpl) TestImports() {
 	}
 }
 
-func (ListsExportImpl) AllocatedBytes() uint32 {
+func (ListsExportImpl) ListsAllocatedBytes() uint32 {
 	return 0
 }
 
-func (i ListsExportImpl) ListRoundtrip(x []uint8) []uint8 {
+func (i ListsExportImpl) ListsListRoundtrip(x []uint8) []uint8 {
 	return x
 }
 
-func (i ListsExportImpl) StringRoundtrip(x string) string {
+func (i ListsExportImpl) ListsStringRoundtrip(x string) string {
 	return x
 }
 
