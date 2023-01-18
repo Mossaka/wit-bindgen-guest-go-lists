@@ -4,7 +4,7 @@
 FROM docker.io/mossaka/wit-bindgen:d24b97f
 
 # TinyGo installation, see https://tinygo.org/getting-started/install/linux/ for instructions
-ARG TINYGO_URL="https://github.com/tinygo-org/tinygo/releases/download/v0.26.0/tinygo_0.26.0_amd64.deb"
+ARG TINYGO_URL="https://github.com/tinygo-org/tinygo/releases/download/v0.25.0/tinygo_0.25.0_amd64.deb"
 RUN curl -sL "$TINYGO_URL" -o tinygo_amd64.deb && dpkg -i tinygo_amd64.deb && rm tinygo_amd64.deb
 
 # install wasi_snapshot_preveiw2 

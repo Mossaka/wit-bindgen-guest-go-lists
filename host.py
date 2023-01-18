@@ -60,9 +60,9 @@ def run() -> None:
 
     allocated_bytes = wasm.allocated_bytes(store)
     wasm.test_imports(store)
-    # assert(wasm.string_roundtrip(store, "x") == "x")
-    # assert(wasm.string_roundtrip(store, "") == "")
-    # assert(wasm.string_roundtrip(store, "hello ⚑ world") == "hello ⚑ world")
+    assert(wasm.string_roundtrip(store, "x") == "x")
+    assert(wasm.string_roundtrip(store, "") == "")
+    assert(wasm.string_roundtrip(store, "hello ⚑ world") == "hello ⚑ world")
 
     # Ensure that we properly called `free` everywhere in all the glue that we
     # needed to.
